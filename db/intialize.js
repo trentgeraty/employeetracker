@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 const connection = require("./connection");
 
-var mysql = require("mysql2");
+//var mysql = require("mysql2");
 
 const { printTable } = require('console-table-printer');
 
@@ -43,9 +43,9 @@ function cli() {
      "CLOSE APPLICATION", new inquirer.Separator()],
   })
   .then(function(answers) {
-      console.log(
-          "here"
-      )
+    //   console.log(
+    //       "here"
+    //   )
     switch (answers.options) {
 
     case "View ALL Employees":
@@ -102,7 +102,7 @@ function cli() {
         break;
             
     case "CLOSE APPLICATION":
-        connection.end();
+        //connection.end();
         console.log("Goodbye");
         process.exit();
         break;
@@ -118,17 +118,17 @@ r.title AS "ROLE", d.name AS "DEPARTMENT", r.salary AS "SALARY",
 FROM employee e 
 LEFT JOIN role r ON e.role_id=r.id
 LEFT JOIN department d ON r.department_id = d.id;`;
-console.log(
-    "line 121"
-)
+// console.log(
+//     "line 121"
+// )
 connection.query(query, function(err, res) {
-        console.log(
-            "line 126"
-        )
+        // console.log(
+        //     "line 126"
+        // )
         if (err) throw err;
-            console.log ("line 129")
+            // console.log ("line 129")
         printTable(res);
-            console.log ("line 131")
+            // console.log ("line 131")
         cli(); 
     }); 
 }
