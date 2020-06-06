@@ -9,12 +9,5 @@ FROM employee e
 LEFT JOIN role r ON e.role_id=r.id
 LEFT JOIN department d ON r.department_id = d.id;
 
--- CREATE VIEW employee_budget AS
--- SELECT d.name AS "department_name", 
--- r.salary AS "salary"
--- FROM employee e 
--- LEFT JOIN role r ON e.role_id=r.id
--- LEFT JOIN department d ON r.department_id = d.id;
-
 select department_name, sum(salary) from employee_budget
 group by department_name ;
